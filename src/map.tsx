@@ -1,8 +1,15 @@
 import DeckGL from "@deck.gl/react/typed";
 import { MapView } from "@deck.gl/core/typed";
 import { TileLayer } from "@deck.gl/geo-layers/typed";
-import { BitmapLayer } from "@deck.gl/layers/typed";
+import { BitmapLayer, IconLayer } from "@deck.gl/layers/typed";
 import styled from "styled-components";
+import type { PickingInfo } from "@deck.gl/core/typed";
+import * as landmarkData from "./landmarks.json";
+import { useState } from "react";
+
+const ICON_MAPPING = {
+  marker: { x: 0, y: 0, width: 128, height: 500, anchor: 128, mask: true },
+};
 
 const CopyrightLicense = styled.div`
   position: absolute;
@@ -21,16 +28,24 @@ const Link = styled.a`
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
-  latitude: 24.961111,
-  longitude: 89.342778,
-  zoom: 8,
+  //   latitude: 24.961111,
+  //   longitude: 89.342778,
+  //   zoom: 8,
+  //   maxZoom: 20,
+  //   maxPitch: 89,
+  //   bearing: 0,
+  longitude: -122.4,
+  latitude: 37.74,
+  zoom: 11,
   maxZoom: 20,
-  maxPitch: 89,
+  pitch: 30,
   bearing: 0,
 };
 
 // DeckGL react component
 export const Map = () => {
+  const [hoverInfo, setHoverInfo] = useState<PickingInfo>();
+
   const tileLayer = new TileLayer({
     // https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Tile_servers
     data: [
@@ -55,8 +70,6 @@ export const Map = () => {
       const east = props.tile.boundingBox[1][0];
       const north = props.tile.boundingBox[1][1];
 
-      console.log(props.tile.boundingBox);
-
       return [
         new BitmapLayer(props, {
           data: undefined,
@@ -67,13 +80,28 @@ export const Map = () => {
     },
   });
 
+  const iconLayer = new IconLayer({
+    id: "icon-layer",
+    // landmarkData,
+    data: "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart-stations.json",
+    pickable: true,
+    iconAtlas:
+      "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png",
+    iconMapping: ICON_MAPPING,
+    getIcon: (d) => "marker",
+    sizeScale: 26,
+    getPosition: (d) => d.coordinates,
+    getSize: (d) => 5,
+    getColor: (d) => [120, 140, 0],
+    onHover: (info) => setHoverInfo(info),
+  });
+  console.log(hoverInfo, "hovering....");
   return (
     <DeckGL
-      layers={[tileLayer]}
+      layers={[tileLayer, iconLayer]}
       views={new MapView({ repeat: true })}
       initialViewState={INITIAL_VIEW_STATE}
       controller={true}
-      //   getTooltip={getTooltip}
     >
       <CopyrightLicense>
         {"© "}
@@ -81,6 +109,19 @@ export const Map = () => {
           OpenStreetMap contributors
         </Link>
       </CopyrightLicense>
+      {hoverInfo?.object && (
+        <div
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            pointerEvents: "none",
+            left: hoverInfo.x,
+            top: hoverInfo.y,
+          }}
+        >
+          {hoverInfo.object.address}
+        </div>
+      )}
     </DeckGL>
   );
 };
