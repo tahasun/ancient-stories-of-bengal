@@ -67,3 +67,23 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.ant-drawer-content-wrapper {
+  min-width: 30vw;
+  margin: 5vh 10vw 5vh 0;
+}
+
+.ant-drawer-content {
+  border-radius: 1rem;
+}
+
+.slick-dots-bottom li {
+  background-color: yellow;
+  width: 2vw;
+  height: 2vh;
+  border-radius: 2px;
+}
+
+.slick-active button {
+  background-color: red;
+}

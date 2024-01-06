@@ -1,5 +1,69 @@
+{"landmarks": [
+{   
+    "id": "1",
+    "name": "Nalanda Mahavihara",
+    "location": "Magadha",
+    "description": "",
+    "images": ["", ""],
+    "coordinates": [85.4944, 25.1550],
+    "timeStart": "427",
+    "timeEnd": "1197"
+},
 {
-    "name": "",
-    "address": "",
-    "coordinates": ""
+    "id": "2",
+    "name": "Vikramashila",
+    "bengaliName": "বিক্রমশিলা",
+    "period": "Pala Empire",
+    "coordinates": [87.2847, 25.3215],
+    "timeStart": "783",
+    "timeEnd": "1193"
+},
+{   
+    "id": "3",
+    "name": "Paharpur Buddhist Vihara",
+    "alternateName": "Somapura Mahavihara",
+    "bengaliName": "সোমপুর মহাবিহার",
+    "period": "Pala Empire",
+    "coordinates": [88.9742, 25.0256],
+    "timeStart": "600",
+    "timeEnd": "1100"
+},
+{   
+    "id": "4",
+    "name": "Shalban Bihar",
+    "alternateName": "",
+    "bengaliName": "শালবন বিহার",
+    "coordinates": [91.1372098, 23.426234],
+    "period": "Pala Empire",
+    "timeStart": "600",
+    "timeEnd": "1100"
+},
+{
+    "id": "5",
+    "name": "Jagaddala Mahavihara",
+    "bengaliName": "জগদ্দল মহাবিহার",
+    "coordinates": [88.8858, 25.1555],
+    "timeStart": "1070",
+    "timeEnd": "1150"
+},
+{
+    "id": "6",
+    "name": "Holud Vihara",
+    "alternateName": "",
+    "bengaliName": "হলুদ বিহার",
+    "period": "Pala Empire",
+    "coordinates": [88.9714, 24.9324],
+    "timeStart": "600",
+    "timeEnd": "1100"
+},
+{
+    "id": "7",
+    "name": "Shitakot Vihara",
+    "alternateName": "",
+    "bengaliName": "সীতাকোট বিহার",
+    "period": "Pala Empire",
+    "coordinates": [90.1619, 23.6612],
+    "timeStart": "600",
+    "timeEnd": "1100"
 }
+]}

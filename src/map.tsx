@@ -6,6 +6,18 @@ import styled from "styled-components";
 import type { PickingInfo } from "@deck.gl/core/typed";
 import * as landmarkData from "./landmarks.json";
 import { useState } from "react";
+import { Drawer } from "antd";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import { Carousel } from "antd";
+import Gallery from "./components/gallery";
+
+const contentStyle: React.CSSProperties = {
+  height: "40vh",
+  color: "#fff",
+  lineHeight: "40vh",
+  textAlign: "center",
+  background: "#364d79",
+};
 
 const ICON_MAPPING = {
   marker: { x: 0, y: 0, width: 128, height: 500, anchor: 128, mask: true },
@@ -26,25 +38,73 @@ const Link = styled.a`
   cursor: grab;
 `;
 
+const HoverInfo = styled.div<{ $position: { x: number; y: number } }>`
+  position: absolute,
+  z-index: 1,
+  pointerEvents: none,
+  left: ${(props) => props.$position.x};
+  top: ${(props) => props.$position.y};
+`;
+
 // Viewport settings
 const INITIAL_VIEW_STATE = {
-  //   latitude: 24.961111,
-  //   longitude: 89.342778,
-  //   zoom: 8,
-  //   maxZoom: 20,
-  //   maxPitch: 89,
-  //   bearing: 0,
-  longitude: -122.4,
-  latitude: 37.74,
-  zoom: 11,
+  latitude: 24.961111,
+  longitude: 92.342778,
+  zoom: 6,
   maxZoom: 20,
-  pitch: 30,
+  maxPitch: 89,
   bearing: 0,
+};
+
+interface ILandmark {
+  id: string;
+  name: string;
+  bengaliName?: string;
+  alternateName?: string;
+  period?: string;
+  location?: string;
+  description?: string;
+  images?: string[];
+  cordinates: number[];
+  timeStart: string;
+  timeEnd: string;
+}
+
+const CustomerDrawer = styled(Drawer)`
+  .customer-drawer-header {
+    // width: 70vw;
+    // background: yellow;
+    // border-radius: 20px;
+    padding: 2vh 1vw;
+  }
+`;
+
+// given an array of objects, create an obj id: landmark obj
+const getLandmarksById = (data: ILandmark[]): { [id: string]: ILandmark } => {
+  return data.reduce((acc, cur) => {
+    acc[cur.id] = cur;
+    return acc;
+  }, {} as { [id: string]: ILandmark });
 };
 
 // DeckGL react component
 export const Map = () => {
   const [hoverInfo, setHoverInfo] = useState<PickingInfo>();
+  const [open, setOpen] = useState(false);
+  //track selected landmark Id
+  const [selectedLandmardId, setSelectedLandmarkId] = useState<string>("0");
+
+  const onChange = (currentSlide: number) => {
+    console.log(currentSlide);
+  };
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
 
   const tileLayer = new TileLayer({
     // https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Tile_servers
@@ -80,22 +140,35 @@ export const Map = () => {
     },
   });
 
+  const handleOnClick = (info: PickingInfo, event: Event) => {
+    setSelectedLandmarkId(info.object.id);
+    setOpen(!open);
+  };
+
   const iconLayer = new IconLayer({
     id: "icon-layer",
-    // landmarkData,
-    data: "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart-stations.json",
+    // data: "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart-stations.json",
+
+    data: landmarkData.landmarks,
     pickable: true,
+    // icon styling
     iconAtlas:
       "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png",
     iconMapping: ICON_MAPPING,
+    // icon data
     getIcon: (d) => "marker",
-    sizeScale: 26,
+    sizeScale: 30,
+    // sizeMinPixels: 100,
+    // sizeUnits: "meters",
     getPosition: (d) => d.coordinates,
     getSize: (d) => 5,
     getColor: (d) => [120, 140, 0],
     onHover: (info) => setHoverInfo(info),
+    onClick: (info, event) => handleOnClick(info, event),
   });
-  console.log(hoverInfo, "hovering....");
+
+  const landmarksById = getLandmarksById(landmarkData.landmarks);
+
   return (
     <DeckGL
       layers={[tileLayer, iconLayer]}
@@ -109,18 +182,28 @@ export const Map = () => {
           OpenStreetMap contributors
         </Link>
       </CopyrightLicense>
+      <CustomerDrawer
+        title={landmarksById[selectedLandmardId]?.name}
+        placement="right"
+        onClose={onClose}
+        open={open}
+        className="custom-drawer-content"
+        closeIcon={
+          <ArrowLeftOutlined style={{ padding: "0px", fontSize: "22px" }} />
+        }
+        classNames={{ header: "customer-drawer-header" }}
+      >
+        {/* <p>{landmarksById[selectedLandmardId]?.name}</p> */}
+        <Gallery
+          images={landmarksById[selectedLandmardId]?.images ?? ["", "", "", ""]}
+        />
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </CustomerDrawer>
       {hoverInfo?.object && (
-        <div
-          style={{
-            position: "absolute",
-            zIndex: 1,
-            pointerEvents: "none",
-            left: hoverInfo.x,
-            top: hoverInfo.y,
-          }}
-        >
-          {hoverInfo.object.address}
-        </div>
+        <HoverInfo $position={{ x: hoverInfo.x, y: hoverInfo.y }}>
+          {hoverInfo.object.name}
+        </HoverInfo>
       )}
     </DeckGL>
   );
