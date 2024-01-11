@@ -1,16 +1,71 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { IImage } from "../map";
+
+const SCROLL_TIME = 5 * 1000;
 
 interface GalleryProps {
-  images: string[];
+  images: IImage[];
 }
 
+const Slick = styled.li`
+  height: 4px;
+  width: 2vw;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0px 4px;
+  border-radius: 10px;
+
+  &.active-slick {
+    width: 4vw;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Link = styled.a`
+  font-size: 14px;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: auto;
+  background-color: pink;
+`;
+
+const SlickWrapper = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin: 1vh 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
 const Gallery = (props: GalleryProps) => {
-  const [activeTab, setActiveTab] = useState<number>(1);
+  const [activeTab, setActiveTab] = useState<number>(0);
+
+  useEffect(() => {
+    if (props.images.length > 0) {
+      const interval = setInterval(() => {
+        setActiveTab((prevTabIdx) => (prevTabIdx + 1) % props.images.length);
+      }, SCROLL_TIME);
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }, [props.images]);
 
   return (
     <Wrapper>
-      <Image src={props.images[activeTab]} />
+      <Image src={props.images[activeTab]?.src ?? ""} />
+      <Link href={props.images[activeTab]?.link ?? ""}>
+        ©{props.images[activeTab]?.attribution ?? ""}
+      </Link>
       <SlickWrapper>
         {props.images.map((_, index) => (
           <Slick
@@ -23,36 +78,5 @@ const Gallery = (props: GalleryProps) => {
     </Wrapper>
   );
 };
-
-const Slick = styled.li`
-  height: 4px;
-  width: 2vw;
-  background-color: black;
-  margin: 0px 4px;
-
-  &.active-slick {
-    width: 4vw;
-    background-color: grey;
-  }
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-const Image = styled.img`
-  width: 20vw;
-  height: 20vh;
-  background-color: pink;
-`;
-const SlickWrapper = styled.ul`
-  list-style-type: none; /* Remove bullets */
-  padding: 0; /* Remove padding */
-  margin: 1vh 0; /* Remove margins */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
 
 export default Gallery;

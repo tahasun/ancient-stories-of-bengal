@@ -2,49 +2,91 @@
 {   
     "id": "1",
     "name": "Nalanda Mahavihara",
+    "bengaliName": "নালন্দা",
     "location": "Magadha",
-    "description": "",
-    "images": ["", ""],
+    "images": [
+        {"src": "/images/nalanda-1.jpeg", "attribution": "Photo by Marc", "link": "https://www.flickr.com/photos/marc-p-1970/" }, 
+        {"src": "/images/nalanda-2.jpeg", "attribution": "Photo by Marc", "link": "https://www.flickr.com/photos/marc-p-1970/" },
+        {"src": "/images/nalanda-3.jpeg", "attribution": "Photo by Prita", "link": "https://www.flickr.com/photos/prita1023/" },
+        {"src": "/images/nalanda-4.jpeg", "attribution": "Photo by Prita", "link": "https://www.flickr.com/photos/prita1023/"},
+        {"src": "/images/nalanda-5.jpeg", "attribution": "Photo by Prita", "link": "https://www.flickr.com/photos/prita1023/" }
+    ],
     "coordinates": [85.4944, 25.1550],
     "timeStart": "427",
-    "timeEnd": "1197"
+    "timeEnd": "1197",
+    "description": "Nalanda Mahavihara, a renowned center of education and learning in ancient India, played a pivotal role in the development and institutionalization of the early Indian education system. Distinct from the Gurukula system, Nalanda Mahavihara represented an organized center for higher education and was part of a network of significant Mahaviharas, including Vikramashila, Odantapuri, and Valabhi. Situated in Magadha, between the capitals of Rajgriha and Pataliputra, Nalanda's favorable location and the fertile surrounding areas facilitated its growth as an international learning center. /n  Nalanda Mahavihara thrived for nearly a millennium and became the epicenter for Buddhist philosophy and religion, particularly Mahayana Buddhism. It served as a melting pot for diverse beliefs, traditions, and dogmas, fostering intellectual exchange and transformation. The monastery attracted scholars and students from various regions, contributing to the spread of Buddhist thought across North India, Kashmir, Java, Nepal, Tibet, and even Sri Lanka. /n    The institution's educational philosophy aimed at all-around development, encompassing intellectual, moral, spiritual, and aesthetic dimensions. The admission process was rigorous, with aspirants facing interviews conducted by gatekeepers who were experts in religious controversies. Nalanda's curriculum covered a broad spectrum, including grammar, lexicography, arts, medicine, logic, and philosophy. The study of Mahayana Buddhism, Vedas, Yogasastra, and other texts was integral to the educational experience. /n Nalanda Mahavihara excelled in imparting practical knowledge and promoting discussions, debates, and seminars. The institution's academic calendar was tight, keeping both teachers and students occupied throughout the year. The monastic university became a symbol of the harmonious blend of philosophy and religion, contributing to the codification of Buddhist thoughts and their relevance to contemporary times. The quest for knowledge extended beyond traditional subjects to include astronomy, medicine, and Tāntric Mahayana Buddhism. /n The decline of Nalanda Mahavihara, possibly influenced by changes in social, religious, and political conditions, saw the destruction of parts of the institution during the Muslim invasions in the 12th century. Nevertheless, Nalanda's legacy endures, representing a transformative period in the history of Indian education, where it served as the depository of learning and a fountainhead of Buddhist philosophy that influenced scholars across Buddhist lands. /n",
+    "attribution": "https://www.researchgate.net/publication/307908326_The_Ancient_Nalanda_Mahavihara_The_Beginning_of_Institutional_Education"
 },
 {
     "id": "2",
     "name": "Vikramashila",
     "bengaliName": "বিক্রমশিলা",
+    "location": "Magadha",
     "period": "Pala Empire",
+    "images": [
+        {"src": "/images/vikramshila-1.jpeg", "attribution": "Photo by Sekitar", "link": "https://www.flickr.com/photos/sekitar/" }, 
+        {"src": "/images/vikramshila-3.jpeg", "attribution": "Photo by Ikoonan", "link": "https://www.flickr.com/photos/ikoonan/" },
+        {"src": "/images/vikramshila-4.jpeg", "attribution": "Photo by Rakesh Ranjan", "link": " https://www.flickr.com/photos/travinfoindia/"},
+        {"src": "/images/vikramshila-5.jpeg", "attribution": "Photo by Rakesh Ranjan", "link": " https://www.flickr.com/photos/travinfoindia/" }
+    ],
     "coordinates": [87.2847, 25.3215],
     "timeStart": "783",
-    "timeEnd": "1193"
+    "timeEnd": "1193",
+    "description": "Situated on the banks of the Ganges in the north of Magadha, Vikramashila, founded by King Dharmapala in the eighth or ninth centuries, played a crucial role in the development of Tantrayana Buddhism. Established specifically for the study of Tantrayana, the monastery housed 108 temples, including a central one with a Mahabodhi image, and attracted renowned scholars like Shantipa, Jetari, Ratnavajra, Jñānaśrīmīrṇa, and Naropa. At its zenith, Vikramashila had 160 teachers and 1,000 students, drawing learners from across North India, Kashmir, Java, Nepal, and Tibet. However, by the eleventh century, its glory waned, and the monastery faced decline and eventual destruction in the thirteenth century during the Muslim invasions. Notably, Vikramashila had connections with both Tibet and Sri Lanka, contributing to the spread of tantric Buddhism in these regions. Despite its eventual ruin, Vikramashila remains a captivating testament to the history of tantric Buddhism in India.",
+    "attribution": "https://fpmt.org/wp-content/uploads/sites/2/2001/12/Travel%20Vikramashila.pdf, https://silentpagesindia.blogspot.com/2019/03/vikramshila-lost-university.html"
 },
 {   
     "id": "3",
     "name": "Paharpur Buddhist Vihara",
     "alternateName": "Somapura Mahavihara",
     "bengaliName": "সোমপুর মহাবিহার",
+    "location": "Paharpur, Naogaon",
     "period": "Pala Empire",
+    "images": [
+        {"src": "/images/paharpur-1.jpeg", "attribution": "Photo by Tanvir Ahmed", "link": "https://www.flickr.com/photos/195904854@N04/"}, 
+        {"src": "/images/paharpur-2.jpeg", "attribution": "Photo by Anowarul Haq", "link": "https://www.flickr.com/photos/anowarulhaq/" },
+        {"src": "/images/paharpur-3.jpeg", "attribution": "Photo by Ayse Topbas", "link": "https://www.flickr.com/photos/a2portfolio/" },
+        {"src": "/images/paharpur-4.jpeg", "attribution": "Photo by Anowarul Haq", "link": "https://www.flickr.com/photos/anowarulhaq/"}
+    ],
     "coordinates": [88.9742, 25.0256],
     "timeStart": "600",
-    "timeEnd": "1100"
+    "timeEnd": "1100",
+    "description": "Situated in Paharpur, Bangladesh, Somapura Mahavihara stands as a renowned Buddhist monastery from the Early Medieval period. Constructed by Pala king Dharmapala, its monumental remains, now a conserved structure, reveal a layered history. Despite being initially considered a single monastery, recent findings challenge this notion. /n Studies refute the idea of Somapura Mahavihara as a single entity. Evidence suggests the presence of a vihara and viharika in proximity, as mentioned in the Indian Museum Copper Plate of Dharmapala. /n Monastic establishments in South Asia, including Bengal, played multifaceted roles in social, economic, and political spheres. Buddhist monasteries weren't secluded but served as cores around which settlements formed and transformed, contradicting the belief in their remote locations for meditative purposes. /n Somapura Mahavihara exhibited a continuous history marked by transformations influenced by floods, river shifts, and societal changes, challenging the narrative of abandonment due to a singular catastrophic event. Contrary to the belief that the Turks destroyed the monastery, archaeological data suggests it faced destruction before their arrival. The establishment continued in a declining state post-13th century CE, showcasing resilience amid challenges.",
+    "attribution": "Sen, Swadhin. (2018). 5.12 Paharpur."
 },
 {   
     "id": "4",
     "name": "Shalban Bihar",
+    "location": "Shalbon, Cumilla",
     "alternateName": "",
     "bengaliName": "শালবন বিহার",
+    "images": [
+        {"src": "/images/shalbon-bihar-1.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
+        {"src": "/images/shalbon-bihar-2.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
+        {"src": "/images/shalbon-bihar-3.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
+        {"src": "/images/shalbon-bihar-4.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
+        {"src": "/images/shalbon-bihar-5.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}
+    ],
     "coordinates": [91.1372098, 23.426234],
     "period": "Pala Empire",
     "timeStart": "600",
-    "timeEnd": "1100"
+    "timeEnd": "1100",
+    "description": "Shalbon Vihara, situated in Mainamati, Comilla, Bangladesh, is a seminal Buddhist Vihara erected in the late 8th century during the reign of King Shri Bhavadeva. Originally denoted as Bhavadev Bihar, the nomenclature transitioned to Shalbon, inspired by the adjacent Shorea robusta trees. \n Recognized as Salban Vihara today, the site exemplifies the evolution of Buddhist temple architecture. Initially named Bhava Deva Mahavihara, the complex, surrounded by 115 cells, features a central cruciform temple within a capacious courtyard. \n Functioning as a hub for contemplative practices and theological scholarship, Shalbon Vihara hosted monks and scholars. Archaeological findings include seven copper-plate inscriptions, around 350 golden artifacts, and diverse sculptural specimens spanning the 7th to the 13th century AD. \n The morphological changes in Shalbon Vihara's central shrine and configuration reflect architectural shifts in traditional Buddhist Stupa designs. As an archaeological treasure trove, Shalbon Vihara offers profound insights into the cultural and architectural legacy of its historical milieu.", 
+    "attribution": "https://www.researchgate.net/publication/327797189_Shalban_ViharaComillaMaynamatiBanglades"
 },
 {
     "id": "5",
     "name": "Jagaddala Mahavihara",
     "bengaliName": "জগদ্দল মহাবিহার",
+    "images": [
+        {"src": "/images/jagaddala-1.jpeg", "attribution": "Photo by Nayeem, Julfiker Ahmed", "link": "https://www.facebook.com/newarbuddhism/posts/jagaddala-mahavihara-bangladeshjagdal-or-jagaddala-mahavihara-fl-late-11th-centu/3355992194626527/" }, 
+        {"src": "/images/jagaddala-2.jpeg", "attribution": "Photo by Nayeem, Julfiker Ahmed", "link": "https://www.facebook.com/newarbuddhism/posts/jagaddala-mahavihara-bangladeshjagdal-or-jagaddala-mahavihara-fl-late-11th-centu/3355992194626527/" }
+    ],
+    "description": "Jagdal or Jagaddala Mahavihara (fl. late 11th century - mid-12th century) was founded by the later kings of the Pāla dynasty, probably Ramapala. It was specialized in Vajrayana Buddhism. A large number of texts that would later appear in the Kanjur and Tengjur were known to have been composed or copied at Jagadala. It is likely that the earliest dated anthology of Sanskrit verse, the Subhāṣitaratnakoṣa,  was compiled by Vidyākara at Jaggadala toward the end of the 11th century or the beginning of the 12th.",
     "coordinates": [88.8858, 25.1555],
     "timeStart": "1070",
-    "timeEnd": "1150"
+    "timeEnd": "1150",
+    "attribution": "https://www.facebook.com/newarbuddhism/posts/jagaddala-mahavihara-bangladeshjagdal-or-jagaddala-mahavihara-fl-late-11th-centu/3355992194626527/"
 },
 {
     "id": "6",
@@ -52,9 +94,14 @@
     "alternateName": "",
     "bengaliName": "হলুদ বিহার",
     "period": "Pala Empire",
+    "images": [
+        {"src": "/images/halud-bihar-1.png", "attribution": "unknown", "link": "" }
+    ],
     "coordinates": [88.9714, 24.9324],
     "timeStart": "600",
-    "timeEnd": "1100"
+    "timeEnd": "1100",
+    "description": "Halud Vihara, a renowned Buddhist monastery in Naogaon, Bangladesh, dates back to the early medieval period. Associated with Raja Haladhara and Sonavanas, it holds ancient artifacts like terracotta plaques, ornamental bricks, and metal images, reflecting the spread of Buddhism in the region between the 6th and 4th centuries.",
+    "attribution": "https://sdg360.net/assets/documents/halud-vihara-by-sania-rahman.docx.pdf"
 },
 {
     "id": "7",
@@ -62,8 +109,13 @@
     "alternateName": "",
     "bengaliName": "সীতাকোট বিহার",
     "period": "Pala Empire",
+    "images": [
+        {"src": "/images/shitakot-bihar-1.jpeg", "attribution": "unknown", "link": "https://worldheritagebd.blogspot.com/2015/05/sitakot-vihara.html" }
+    ],
     "coordinates": [90.1619, 23.6612],
     "timeStart": "600",
-    "timeEnd": "1100"
+    "timeEnd": "1100",
+    "description": "Sitakot Vihara, situated in Nawabganj Upazila under Dinajpur district, stands as a significant Buddhist monastery in Bangladesh. Built on a square plan with impressive dimensions (65.23m east-west and 64.11m north-south), the vihara features a gateway complex at the center of the northern wing. \n The monastery comprises four wings with a total of 41 cells, each almost identical in size (3.66m by 3.35m). Niches in the back and partition walls adorn these cells, showcasing a well-planned inner verandah (2.59m wide) that encircles the entire structure. The central cells in the east, west, and south wings, distinguished by their larger size, likely housed votive images on substantial brick platforms. \n Two significant bronze images discovered at Sitakot Vihara, depicting Bodhisattva Padmapani and Bodhisattva Manjushri, date back to the seventh-eighth century AD. Although the monastery's exact age remains undetermined, its structural elements align with those of the Bhasu vihara, emphasizing its historical and cultural importance in the region.",
+    "attribution": "https://worldheritagebd.blogspot.com/2015/05/sitakot-vihara.html"
 }
 ]}

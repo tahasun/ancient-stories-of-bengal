@@ -5,11 +5,9 @@ import { BitmapLayer, IconLayer } from "@deck.gl/layers/typed";
 import styled from "styled-components";
 import type { PickingInfo } from "@deck.gl/core/typed";
 import * as landmarkData from "./landmarks.json";
-import { useState } from "react";
-import { Drawer } from "antd";
-import { ArrowLeftOutlined } from "@ant-design/icons";
-import { Carousel } from "antd";
-import Gallery from "./components/gallery";
+import { useMemo, useState } from "react";
+import Profile from "./components/profile";
+import { getLandmarksById } from "./utils";
 
 const contentStyle: React.CSSProperties = {
   height: "40vh",
@@ -20,7 +18,7 @@ const contentStyle: React.CSSProperties = {
 };
 
 const ICON_MAPPING = {
-  marker: { x: 0, y: 0, width: 128, height: 500, anchor: 128, mask: true },
+  marker: { x: 0, y: 0, width: 260, height: 280, anchor: 260, mask: true },
 };
 
 const CopyrightLicense = styled.div`
@@ -56,63 +54,24 @@ const INITIAL_VIEW_STATE = {
   bearing: 0,
 };
 
-interface ILandmark {
-  id: string;
-  name: string;
-  bengaliName?: string;
-  alternateName?: string;
-  period?: string;
-  location?: string;
-  description?: string;
-  images?: string[];
-  cordinates: number[];
-  timeStart: string;
-  timeEnd: string;
-}
-
-const CustomerDrawer = styled(Drawer)`
-  .customer-drawer-header {
-    // width: 70vw;
-    // background: yellow;
-    // border-radius: 20px;
-    padding: 2vh 1vw;
-  }
-`;
-
-// given an array of objects, create an obj id: landmark obj
-const getLandmarksById = (data: ILandmark[]): { [id: string]: ILandmark } => {
-  return data.reduce((acc, cur) => {
-    acc[cur.id] = cur;
-    return acc;
-  }, {} as { [id: string]: ILandmark });
-};
-
 // DeckGL react component
 export const Map = () => {
   const [hoverInfo, setHoverInfo] = useState<PickingInfo>();
   const [open, setOpen] = useState(false);
   //track selected landmark Id
-  const [selectedLandmardId, setSelectedLandmarkId] = useState<string>("0");
-
-  const onChange = (currentSlide: number) => {
-    console.log(currentSlide);
-  };
-
-  const showDrawer = () => {
-    setOpen(true);
-  };
+  const [selectedLandmarkId, setSelectedLandmarkId] = useState<string>("0");
 
   const onClose = () => {
     setOpen(false);
   };
 
   const tileLayer = new TileLayer({
-    // https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Tile_servers
     data: [
-      "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "https://a.tile.openstreetmap.org/osm-bright/{z}/{x}/{y}.png",
+      "https://b.tile.openstreetmap.org/osm-bright/{z}/{x}/{y}.png",
+      "https://c.tile.openstreetmap.org/osm-bright/{z}/{x}/{y}.png",
     ],
+
     maxRequests: 20,
 
     pickable: true,
@@ -147,27 +106,30 @@ export const Map = () => {
 
   const iconLayer = new IconLayer({
     id: "icon-layer",
-    // data: "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart-stations.json",
-
     data: landmarkData.landmarks,
     pickable: true,
-    // icon styling
-    iconAtlas:
-      "https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png",
+    // ittcon styling
+    // iconAtlas:
+    //   "hps://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png",
+    iconAtlas: "/icons/pin.png",
     iconMapping: ICON_MAPPING,
     // icon data
     getIcon: (d) => "marker",
-    sizeScale: 30,
+    sizeScale: 10,
     // sizeMinPixels: 100,
     // sizeUnits: "meters",
     getPosition: (d) => d.coordinates,
     getSize: (d) => 5,
-    getColor: (d) => [120, 140, 0],
+    getColor: (d) => [90, 34, 139],
     onHover: (info) => setHoverInfo(info),
     onClick: (info, event) => handleOnClick(info, event),
   });
 
   const landmarksById = getLandmarksById(landmarkData.landmarks);
+
+  const selectedLandmark = useMemo(() => {
+    return landmarksById[selectedLandmarkId] ?? {};
+  }, [selectedLandmarkId]);
 
   return (
     <DeckGL
@@ -182,24 +144,7 @@ export const Map = () => {
           OpenStreetMap contributors
         </Link>
       </CopyrightLicense>
-      <CustomerDrawer
-        title={landmarksById[selectedLandmardId]?.name}
-        placement="right"
-        onClose={onClose}
-        open={open}
-        className="custom-drawer-content"
-        closeIcon={
-          <ArrowLeftOutlined style={{ padding: "0px", fontSize: "22px" }} />
-        }
-        classNames={{ header: "customer-drawer-header" }}
-      >
-        {/* <p>{landmarksById[selectedLandmardId]?.name}</p> */}
-        <Gallery
-          images={landmarksById[selectedLandmardId]?.images ?? ["", "", "", ""]}
-        />
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </CustomerDrawer>
+      <Profile landmark={selectedLandmark} active={open} onClose={onClose} />
       {hoverInfo?.object && (
         <HoverInfo $position={{ x: hoverInfo.x, y: hoverInfo.y }}>
           {hoverInfo.object.name}
