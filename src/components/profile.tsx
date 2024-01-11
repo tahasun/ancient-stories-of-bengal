@@ -46,10 +46,11 @@ const Profile = ({ landmark, active, onClose }: ProfileProps) => {
         {landmark.bengaliName}, {getYear(landmark.timeStart)} -{" "}
         {getYear(landmark.timeEnd)}
       </h2>
+      <p>{landmark.location ?? ""}</p>
       <Gallery images={landmark.images ?? []} />
       <section>
-        {paragraphs.map((paragrpah: string) => (
-          <p>{paragrpah}</p>
+        {paragraphs.map((paragrpah: string, id: number) => (
+          <p key={id}>{paragrpah}</p>
         ))}
       </section>
       {citations?.length > 0 ? "further readings | source: " : ""}

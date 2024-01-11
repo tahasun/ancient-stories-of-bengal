@@ -4,7 +4,6 @@ function App() {
   return (
     <>
       <Map />
-      <p>Hello World</p>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { IImage } from "../map";
+import { IImage } from "../types";
 
 const SCROLL_TIME = 5 * 1000;
 
@@ -48,17 +48,25 @@ const SlickWrapper = styled.ul`
 
 const Gallery = (props: GalleryProps) => {
   const [activeTab, setActiveTab] = useState<number>(0);
+  const [_interval, _setInterval] = useState<number>(0);
 
   useEffect(() => {
     if (props.images.length > 0) {
       const interval = setInterval(() => {
         setActiveTab((prevTabIdx) => (prevTabIdx + 1) % props.images.length);
       }, SCROLL_TIME);
+
+      _setInterval(interval);
       return () => {
         clearInterval(interval);
       };
     }
   }, [props.images]);
+
+  const handleClick = (index: number) => {
+    clearInterval(_interval);
+    setActiveTab(index);
+  };
 
   return (
     <Wrapper>
@@ -70,7 +78,7 @@ const Gallery = (props: GalleryProps) => {
         {props.images.map((_, index) => (
           <Slick
             key={index}
-            onClick={() => setActiveTab(index)}
+            onClick={() => handleClick(index)}
             className={activeTab === index ? "active-slick" : ""}
           />
         ))}

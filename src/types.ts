@@ -14,8 +14,9 @@ export interface ILandmark {
     location?: string;
     description?: string;
     attribution?: string;
-    images?: IImage[];
+    images: IImage[];
     coordinates: number[];
     timeStart: string;
     timeEnd: string;
+    selected: boolean;
 }
