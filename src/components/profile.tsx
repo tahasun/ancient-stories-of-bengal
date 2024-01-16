@@ -13,6 +13,11 @@ const CustomDrawer = styled(Drawer)`
 
   h2 {
     font-size: 16px;
+    margin-bottom: 0px;
+  }
+
+  p {
+    margin-top: 0px;
   }
 
   section {

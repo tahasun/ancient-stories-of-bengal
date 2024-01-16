@@ -1,9 +1,9 @@
-{
+[{
     "name": "Khulnar Dhap",
     "coordinates": [89.342778, 24.961111],
     "time-start": "300 BCE",
     "time-end": "700 CE"
-}, 
+},
 {
     "name": "Mangalkot",
     "coordinates": [89.342778, 24.961111],
@@ -44,4 +44,5 @@
     "coordinates": [90.032723, 24.045958],
     "time-start": "300 BCE",
     "time-end": "700 CE"
-},
+}
+]

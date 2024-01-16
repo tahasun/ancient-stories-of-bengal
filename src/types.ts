@@ -12,6 +12,7 @@ export interface ILandmark {
     alternateName?: string;
     period?: string;
     location?: string;
+    "historic-location"?: string;
     description?: string;
     attribution?: string;
     images: IImage[];
