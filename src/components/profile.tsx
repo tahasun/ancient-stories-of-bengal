@@ -5,6 +5,12 @@ import styled from "styled-components";
 import { ILandmark } from "../types";
 import { getYear } from "../utils";
 
+interface ProfileProps {
+  landmark: ILandmark;
+  active: boolean;
+  onClose: () => void;
+}
+
 const CustomDrawer = styled(Drawer)`
   .customer-drawer-header {
     padding: 2vh 1vw;
@@ -24,12 +30,6 @@ const CustomDrawer = styled(Drawer)`
     padding-top: 20px;
   }
 `;
-
-interface ProfileProps {
-  landmark: ILandmark;
-  active: boolean;
-  onClose: () => void;
-}
 
 const Profile = ({ landmark, active, onClose }: ProfileProps) => {
   const citations = landmark.attribution?.split(",") ?? [];
