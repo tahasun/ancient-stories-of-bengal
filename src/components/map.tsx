@@ -2,12 +2,12 @@ import DeckGL from "@deck.gl/react/typed";
 import { MapView } from "@deck.gl/core/typed";
 import { IconLayer } from "@deck.gl/layers/typed";
 import type { PickingInfo } from "@deck.gl/core/typed";
-import * as landmarkData from "./landmarks.json";
+import * as landmarkData from "../data/landmarks.json";
 import { useMemo, useReducer, useState } from "react";
-import Profile from "./components/profile";
-import { getLandmarksById } from "./utils";
-import ProfilePreview from "./components/preview";
-import { ILandmark, ViewState } from "./types";
+import Profile from "./profile";
+import { getLandmarksById } from "../utils/utils";
+import ProfilePreview from "./preview";
+import { ILandmark, ViewState } from "../utils/types";
 import {
   Wrapper,
   HoverInfo,
@@ -16,12 +16,17 @@ import {
   CircularWrapper,
   TopBar,
 } from "./map.style";
-import { MapController } from "./components/mapController";
+import { MapController } from "./mapController";
 import { tileLayer } from "./TileLayer";
-import { INITIAL_VIEW_STATE } from "./constants";
+import { INITIAL_VIEW_STATE } from "../utils/constants";
 import { HomeFilled } from "@ant-design/icons";
 import { Select } from "antd";
-import { MapState, mapReducer, MapActions, MapContext } from "./mapContext";
+import {
+  MapState,
+  mapReducer,
+  MapActions,
+  MapContext,
+} from "../utils/mapContext";
 
 const ICON_MAPPING = {
   marker: { x: 0, y: 0, width: 260, height: 280, anchor: 260, mask: true },

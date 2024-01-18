@@ -6,10 +6,10 @@ import {
 } from "@ant-design/icons";
 import { Modal } from "antd";
 import { useState } from "react";
-import { MAX_ZOOM_LEVEL, MIN_ZOOM_LEVEL } from "../constants";
-import { ControlWrapper, PlayAnimation } from "../map.style";
+import { MAX_ZOOM_LEVEL, MIN_ZOOM_LEVEL } from "../utils/constants";
+import { ControlWrapper, PlayAnimation } from "./map.style";
 import { useContext } from "react";
-import { MapActions, MapContext } from "../mapContext";
+import { MapActions, MapContext } from "../utils/mapContext";
 
 export const MapController = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

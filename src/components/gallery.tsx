@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { IImage } from "../types";
+import { IImage } from "../utils/types";
 
 const SCROLL_TIME = 5 * 1000;
 

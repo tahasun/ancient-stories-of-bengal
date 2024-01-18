@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ILandmark } from "../types";
+import { ILandmark } from "../utils/types";
 
 const Container = styled.div`
   background-color: white;

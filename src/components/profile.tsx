@@ -2,8 +2,8 @@ import { ArrowLeftOutlined } from "@ant-design/icons";
 import Gallery from "./gallery";
 import { Drawer } from "antd";
 import styled from "styled-components";
-import { ILandmark } from "../types";
-import { getYear } from "../utils";
+import { ILandmark } from "../utils/types";
+import { getYear } from "../utils/utils";
 
 interface ProfileProps {
   landmark: ILandmark;
