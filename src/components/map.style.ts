@@ -47,7 +47,7 @@ export const Wrapper = styled.div`
   height: 100%;
 `;
 
-export const TopBar = styled.div`
+export const TopSection = styled.div`
   position: absolute;
   left: 26vw;
   top: 4vh;

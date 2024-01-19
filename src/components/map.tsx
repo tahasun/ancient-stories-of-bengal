@@ -8,25 +8,18 @@ import Profile from "./profile";
 import { getLandmarksById } from "../utils/utils";
 import ProfilePreview from "./preview";
 import { ILandmark, ViewState } from "../utils/types";
-import {
-  Wrapper,
-  HoverInfo,
-  CopyrightLicense,
-  Link,
-  CircularWrapper,
-  TopBar,
-} from "./map.style";
+import { Wrapper, HoverInfo, CopyrightLicense, Link } from "./map.style";
 import { MapController } from "./mapController";
 import { tileLayer } from "./TileLayer";
 import { INITIAL_VIEW_STATE } from "../utils/constants";
-import { HomeFilled } from "@ant-design/icons";
-import { Select } from "antd";
+
 import {
   MapState,
   mapReducer,
   MapActions,
   MapContext,
 } from "../utils/mapContext";
+import { TopBar } from "./topBar";
 
 const ICON_MAPPING = {
   marker: { x: 0, y: 0, width: 260, height: 280, anchor: 260, mask: true },
@@ -37,39 +30,28 @@ const INITIAL_MAP_STATE = {
   animationOn: false,
 } as MapState;
 
-// DeckGL react component
 export const Map = () => {
   const [hoverInfo, setHoverInfo] = useState<PickingInfo>();
   const [openProfile, setOpenProfile] = useState(false);
-  const [selectedLandmarkId, setSelectedLandmarkId] = useState<string | null>(
-    null
-  );
   const [data, setData] = useState<ILandmark[]>(landmarkData.landmarks);
   const [searchVal, setSearchVal] = useState<string>(""); //track id selected
   const [mapState, dispatch] = useReducer(mapReducer, INITIAL_MAP_STATE);
 
-  const onClose = () => {
-    setOpenProfile(false);
+  const selectedLandmarkId = useMemo(() => {
+    const selectedId = landmarkData.landmarks
+      .filter((landmark) => landmark.selected)
+      .map((l) => l.id);
 
-    if (selectedLandmarkId) {
-      const newLandmark = landmarksById[selectedLandmarkId];
-      newLandmark.selected = false;
-      setData((data) => [...data, newLandmark]);
-    }
-  };
+    return selectedId.length < 1 ? null : selectedId[0];
+  }, [data]);
 
-  const handleViewStateChange = (newViewState: ViewState) => {
-    dispatch({ type: MapActions.UPDATE_VIEWSTATE, viewState: newViewState });
-  };
-
-  const handleOnClick = (info: PickingInfo) => {
+  const handlePinClick = (info: PickingInfo) => {
     if (selectedLandmarkId) {
       const oldLandmark = landmarksById[selectedLandmarkId];
       oldLandmark.selected = false;
       setData((data) => [...data, oldLandmark]);
     }
 
-    setSelectedLandmarkId(info.object.id);
     setOpenProfile(!openProfile);
 
     const newLandmark = landmarksById[info.object.id];
@@ -78,6 +60,7 @@ export const Map = () => {
     setData((data) => [...data, newLandmark]);
   };
 
+  // selecting landmark from search bar/dropdown
   const handleSelectLandmark = (id: string) => {
     setSearchVal(id);
 
@@ -86,8 +69,6 @@ export const Map = () => {
       oldLandmark.selected = false;
       setData((data) => [...data, oldLandmark]);
     }
-
-    setSelectedLandmarkId(id);
 
     const newLandmark = landmarksById[id];
     newLandmark.selected = true;
@@ -131,6 +112,20 @@ export const Map = () => {
     });
   };
 
+  const handleViewStateChange = (newViewState: ViewState) => {
+    dispatch({ type: MapActions.UPDATE_VIEWSTATE, viewState: newViewState });
+  };
+
+  const onClose = () => {
+    setOpenProfile(false);
+
+    if (selectedLandmarkId) {
+      const newLandmark = landmarksById[selectedLandmarkId];
+      newLandmark.selected = false;
+      setData((data) => [...data, newLandmark]);
+    }
+  };
+
   const iconLayer = new IconLayer({
     id: "icon-layer",
     data: data,
@@ -144,7 +139,7 @@ export const Map = () => {
     getColor: (d) => (d.selected ? [210, 77, 87] : [90, 34, 139]),
     onHover: (info) => setHoverInfo(info),
     highlightColor: [210, 77, 87],
-    onClick: (info) => handleOnClick(info),
+    onClick: (info) => handlePinClick(info),
   });
 
   const landmarksById = getLandmarksById(landmarkData.landmarks);
@@ -152,10 +147,6 @@ export const Map = () => {
   const selectedLandmark = useMemo(() => {
     return landmarksById[selectedLandmarkId ?? 0] ?? {};
   }, [selectedLandmarkId]);
-
-  const landmarkOptions = landmarkData.landmarks.map((landmark) => {
-    return { value: landmark.id, label: landmark.name };
-  });
 
   return (
     <Wrapper>
@@ -168,29 +159,11 @@ export const Map = () => {
           handleViewStateChange(viewState as ViewState)
         }
       >
-        <TopBar>
-          <CircularWrapper>
-            <HomeFilled onClick={() => resetCamera()} />
-          </CircularWrapper>
-
-          <Select
-            showSearch
-            style={{ width: 600 }}
-            placeholder="Search for a landmark..."
-            optionFilterProp="children"
-            filterOption={(input, option) =>
-              (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
-            }
-            filterSort={(optionA, optionB) =>
-              (optionA?.label ?? "")
-                .toLowerCase()
-                .localeCompare((optionB?.label ?? "").toLowerCase())
-            }
-            options={landmarkOptions}
-            onSelect={(val) => handleSelectLandmark(val)}
-            value={searchVal}
-          />
-        </TopBar>
+        <TopBar
+          resetCameraHandler={resetCamera}
+          selectLandmarkHandler={handleSelectLandmark}
+          searchVal={searchVal}
+        />
         <Profile
           landmark={selectedLandmark}
           active={openProfile}

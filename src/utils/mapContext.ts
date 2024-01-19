@@ -16,7 +16,7 @@ export type UpdateMapAction = { type: MapActions; viewState: ViewState };
 
 export type ContextType = {
     state: MapState;
-    dispatch: React.Dispatch<Action>;
+    dispatch: React.Dispatch<UpdateMapAction>;
   };
 
 export const mapReducer = (mapState: MapState, action: UpdateMapAction): MapState => {
