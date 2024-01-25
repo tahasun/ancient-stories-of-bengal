@@ -1,10 +1,9 @@
-import { Map } from "./map";
+import { Map } from "./components/map";
 
 function App() {
   return (
     <>
       <Map />
-      <p>Hello World</p>
     </>
   );
 }
