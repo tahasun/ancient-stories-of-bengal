@@ -30,10 +30,8 @@ export const mapReducer = (mapState: MapState, action: UpdateMapAction): MapStat
         viewState: action.viewState,
       };
     case MapActions.HOME_PRESSED:
-      // throw Error("Unimplemented action: " + action.type);
       return mapState;
     default:
-      // throw Error("Unknown action: " + action.type);
       return mapState;
   }
 };
