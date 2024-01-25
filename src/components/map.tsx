@@ -130,7 +130,7 @@ export const Map = () => {
     id: "icon-layer",
     data: data,
     pickable: true,
-    iconAtlas: "/icons/pin.png",
+    iconAtlas: "/StoriesOfOurLand/icons/pin.png",
     iconMapping: ICON_MAPPING,
     getIcon: () => "marker",
     sizeScale: 10,
