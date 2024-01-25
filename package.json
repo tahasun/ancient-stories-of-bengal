@@ -2,6 +2,7 @@
   "name": "storiesofourland",
   "private": true,
   "version": "1.0.0",
+  "homepage": "http://tahasun.github.io/storiesofourland",
   "type": "module",
   "scripts": {
     "dev": "vite",
