@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { IImage } from "../utils/types";
 
 const SCROLL_TIME = 5 * 1000;
+export const BASE_URL = "stories-of-our-land";
 
 interface GalleryProps {
   images: IImage[];
@@ -68,9 +69,13 @@ const Gallery = (props: GalleryProps) => {
     setActiveTab(index);
   };
 
+  const imgSrc = import.meta.env.PROD
+    ? BASE_URL + props.images[activeTab]?.src
+    : props.images[activeTab]?.src;
+
   return (
     <Wrapper>
-      <Image src={props.images[activeTab]?.src ?? ""} />
+      <Image src={imgSrc ?? ""} />
       <Link href={props.images[activeTab]?.link ?? ""}>
         ©{props.images[activeTab]?.attribution ?? ""}
       </Link>

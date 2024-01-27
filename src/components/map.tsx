@@ -6,7 +6,7 @@ import * as landmarkData from "../data/landmarks.json";
 import { useMemo, useReducer, useState } from "react";
 import Profile from "./profile";
 import { getLandmarksById } from "../utils/utils";
-import ProfilePreview from "./preview";
+// import ProfilePreview from "./preview";
 import { ILandmark, ViewState } from "../utils/types";
 import { Wrapper, HoverInfo, CopyrightLicense, Link } from "./map.style";
 import { MapController } from "./mapController";
@@ -20,6 +20,7 @@ import {
   MapContext,
 } from "../utils/mapContext";
 import { TopBar } from "./topBar";
+import { BASE_URL } from "./gallery";
 
 const ICON_MAPPING = {
   marker: { x: 0, y: 0, width: 260, height: 280, anchor: 260, mask: true },
@@ -130,7 +131,7 @@ export const Map = () => {
     id: "icon-layer",
     data: data,
     pickable: true,
-    iconAtlas: "/StoriesOfOurLand/icons/pin.png",
+    iconAtlas: `/${BASE_URL}/icons/pin.png`,
     iconMapping: ICON_MAPPING,
     getIcon: () => "marker",
     sizeScale: 10,
@@ -178,7 +179,7 @@ export const Map = () => {
               top: hoverInfo.y,
             }}
           >
-            <ProfilePreview landmark={hoverInfo.object} />
+            {/* <ProfilePreview landmark={hoverInfo.object} /> */}
           </HoverInfo>
         )}
 

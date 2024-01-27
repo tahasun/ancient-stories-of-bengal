@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ILandmark } from "../utils/types";
+import { BASE_URL } from "./gallery";
 
 const Container = styled.div`
   background-color: white;
@@ -23,10 +24,14 @@ const Img = styled.img`
 `;
 
 const ProfilePreview = ({ landmark }: { landmark: ILandmark }) => {
+  const imgSrc = import.meta.env.PROD
+    ? BASE_URL + landmark.images[0].src
+    : landmark.images[0].src;
+
   return (
     <Container>
       <h2>{landmark.name}</h2>
-      <Img src={landmark.images[0].src ?? ""} />
+      <Img src={imgSrc} />
     </Container>
   );
 };
