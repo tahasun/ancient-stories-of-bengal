@@ -24,14 +24,14 @@ const Img = styled.img`
 `;
 
 const ProfilePreview = ({ landmark }: { landmark: ILandmark }) => {
-  const imgSrc = import.meta.env.PROD
-    ? BASE_URL + landmark.images[0].src
-    : landmark.images[0].src;
+  // const imgSrc = import.meta.env.PROD
+  //   ? BASE_URL + landmark.images[0].src
+  //   : landmark.images[0].src;
 
   return (
     <Container>
       <h2>{landmark.name}</h2>
-      <Img src={imgSrc} />
+      <Img src={landmark.images[0].src} />
     </Container>
   );
 };
