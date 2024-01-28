@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { IImage } from "../utils/types";
 
 const SCROLL_TIME = 5 * 1000;
-export const BASE_URL = "stories-of-our-land";
 
 interface GalleryProps {
   images: IImage[];

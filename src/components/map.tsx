@@ -20,7 +20,8 @@ import {
   MapContext,
 } from "../utils/mapContext";
 import { TopBar } from "./topBar";
-import { BASE_URL } from "./gallery";
+
+export const BASE_URL = "stories-of-our-land";
 
 const ICON_MAPPING = {
   marker: { x: 0, y: 0, width: 260, height: 280, anchor: 260, mask: true },

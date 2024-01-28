@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ILandmark } from "../utils/types";
-import { BASE_URL } from "./gallery";
+// import { BASE_URL } from "./gallery";
 
 const Container = styled.div`
   background-color: white;
