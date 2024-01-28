@@ -68,13 +68,11 @@ const Gallery = (props: GalleryProps) => {
     setActiveTab(index);
   };
 
-  // const imgSrc = import.meta.env.PROD
-  //   ? BASE_URL + props.images[activeTab]?.src
-  //   : props.images[activeTab]?.src;
+  const imgSrc = "images/" + props.images[activeTab]?.src;
 
   return (
     <Wrapper>
-      <Image src={props.images[activeTab]?.src ?? ""} />
+      <Image src={imgSrc ?? ""} />
       <Link href={props.images[activeTab]?.link ?? ""}>
         ©{props.images[activeTab]?.attribution ?? ""}
       </Link>

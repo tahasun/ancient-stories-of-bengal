@@ -6,11 +6,11 @@
     "location": "Nalanda, Bihar",
     "historic-location": "Magadha",
     "images": [
-        {"src": "/images/nalanda-1.jpeg", "attribution": "Photo by Marc", "link": "https://www.flickr.com/photos/marc-p-1970/" }, 
-        {"src": "/images/nalanda-2.jpeg", "attribution": "Photo by Marc", "link": "https://www.flickr.com/photos/marc-p-1970/" },
-        {"src": "/images/nalanda-3.jpeg", "attribution": "Photo by Prita", "link": "https://www.flickr.com/photos/prita1023/" },
-        {"src": "/images/nalanda-4.jpeg", "attribution": "Photo by Prita", "link": "https://www.flickr.com/photos/prita1023/"},
-        {"src": "/images/nalanda-5.jpeg", "attribution": "Photo by Prita", "link": "https://www.flickr.com/photos/prita1023/" }
+        {"src": "nalanda-1.jpeg", "attribution": "Photo by Marc", "link": "https://www.flickr.com/photos/marc-p-1970/" }, 
+        {"src": "nalanda-2.jpeg", "attribution": "Photo by Marc", "link": "https://www.flickr.com/photos/marc-p-1970/" },
+        {"src": "nalanda-3.jpeg", "attribution": "Photo by Prita", "link": "https://www.flickr.com/photos/prita1023/" },
+        {"src": "nalanda-4.jpeg", "attribution": "Photo by Prita", "link": "https://www.flickr.com/photos/prita1023/"},
+        {"src": "nalanda-5.jpeg", "attribution": "Photo by Prita", "link": "https://www.flickr.com/photos/prita1023/" }
     ],
     "coordinates": [85.4944, 25.1550],
     "timeStart": "427",
@@ -28,10 +28,10 @@
     "location": "Bhagalpur, Bihar",
     "period": "Pala Empire",
     "images": [
-        {"src": "/images/vikramshila-1.jpeg", "attribution": "Photo by Sekitar", "link": "https://www.flickr.com/photos/sekitar/" }, 
-        {"src": "/images/vikramshila-3.jpeg", "attribution": "Photo by Ikoonan", "link": "https://www.flickr.com/photos/ikoonan/" },
-        {"src": "/images/vikramshila-4.jpeg", "attribution": "Photo by Rakesh Ranjan", "link": " https://www.flickr.com/photos/travinfoindia/"},
-        {"src": "/images/vikramshila-5.jpeg", "attribution": "Photo by Rakesh Ranjan", "link": " https://www.flickr.com/photos/travinfoindia/" }
+        {"src": "vikramshila-1.jpeg", "attribution": "Photo by Sekitar", "link": "https://www.flickr.com/photos/sekitar/" }, 
+        {"src": "vikramshila-3.jpeg", "attribution": "Photo by Ikoonan", "link": "https://www.flickr.com/photos/ikoonan/" },
+        {"src": "vikramshila-4.jpeg", "attribution": "Photo by Rakesh Ranjan", "link": " https://www.flickr.com/photos/travinfoindia/"},
+        {"src": "vikramshila-5.jpeg", "attribution": "Photo by Rakesh Ranjan", "link": " https://www.flickr.com/photos/travinfoindia/" }
     ],
     "coordinates": [87.2847, 25.3215],
     "timeStart": "783",
@@ -49,10 +49,10 @@
     "location": "Paharpur, Naogaon",
     "period": "Pala Empire",
     "images": [
-        {"src": "/images/paharpur-1.jpeg", "attribution": "Photo by Tanvir Ahmed", "link": "https://www.flickr.com/photos/195904854@N04/"}, 
-        {"src": "/images/paharpur-2.jpeg", "attribution": "Photo by Anowarul Haq", "link": "https://www.flickr.com/photos/anowarulhaq/" },
-        {"src": "/images/paharpur-3.jpeg", "attribution": "Photo by Ayse Topbas", "link": "https://www.flickr.com/photos/a2portfolio/" },
-        {"src": "/images/paharpur-4.jpeg", "attribution": "Photo by Anowarul Haq", "link": "https://www.flickr.com/photos/anowarulhaq/"}
+        {"src": "paharpur-1.jpeg", "attribution": "Photo by Tanvir Ahmed", "link": "https://www.flickr.com/photos/195904854@N04/"}, 
+        {"src": "paharpur-2.jpeg", "attribution": "Photo by Anowarul Haq", "link": "https://www.flickr.com/photos/anowarulhaq/" },
+        {"src": "paharpur-3.jpeg", "attribution": "Photo by Ayse Topbas", "link": "https://www.flickr.com/photos/a2portfolio/" },
+        {"src": "paharpur-4.jpeg", "attribution": "Photo by Anowarul Haq", "link": "https://www.flickr.com/photos/anowarulhaq/"}
     ],
     "coordinates": [88.9742, 25.0256],
     "timeStart": "600",
@@ -68,11 +68,11 @@
     "alternateName": "",
     "bengaliName": "শালবন বিহার",
     "images": [
-        {"src": "/images/shalbon-bihar-1.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
-        {"src": "/images/shalbon-bihar-2.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
-        {"src": "/images/shalbon-bihar-3.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
-        {"src": "/images/shalbon-bihar-4.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
-        {"src": "/images/shalbon-bihar-5.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}
+        {"src": "shalbon-bihar-1.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
+        {"src": "shalbon-bihar-2.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
+        {"src": "shalbon-bihar-3.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
+        {"src": "shalbon-bihar-4.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}, 
+        {"src": "shalbon-bihar-5.jpeg", "attribution": "Photo by Zahidul Haque Sabit", "link": "https://www.flickr.com/photos/69003822@N06/"}
     ],
     "coordinates": [91.1372098, 23.426234],
     "period": "Pala Empire",
@@ -88,8 +88,8 @@
     "location": "Dhamoirhat, Naogaon",
     "bengaliName": "জগদ্দল মহাবিহার",
     "images": [
-        {"src": "/images/jagaddala-1.jpeg", "attribution": "Photo by Nayeem, Julfiker Ahmed", "link": "https://www.facebook.com/newarbuddhism/posts/jagaddala-mahavihara-bangladeshjagdal-or-jagaddala-mahavihara-fl-late-11th-centu/3355992194626527/" }, 
-        {"src": "/images/jagaddala-2.jpeg", "attribution": "Photo by Nayeem, Julfiker Ahmed", "link": "https://www.facebook.com/newarbuddhism/posts/jagaddala-mahavihara-bangladeshjagdal-or-jagaddala-mahavihara-fl-late-11th-centu/3355992194626527/" }
+        {"src": "jagaddala-1.jpeg", "attribution": "Photo by Nayeem, Julfiker Ahmed", "link": "https://www.facebook.com/newarbuddhism/posts/jagaddala-mahavihara-bangladeshjagdal-or-jagaddala-mahavihara-fl-late-11th-centu/3355992194626527/" }, 
+        {"src": "jagaddala-2.jpeg", "attribution": "Photo by Nayeem, Julfiker Ahmed", "link": "https://www.facebook.com/newarbuddhism/posts/jagaddala-mahavihara-bangladeshjagdal-or-jagaddala-mahavihara-fl-late-11th-centu/3355992194626527/" }
     ],
     "description": "Jagdal or Jagaddala Mahavihara (fl. late 11th century - mid-12th century) was founded by the later kings of the Pāla dynasty, probably Ramapala. It was specialized in Vajrayana Buddhism. A large number of texts that would later appear in the Kanjur and Tengjur were known to have been composed or copied at Jagadala. It is likely that the earliest dated anthology of Sanskrit verse, the Subhāṣitaratnakoṣa,  was compiled by Vidyākara at Jaggadala toward the end of the 11th century or the beginning of the 12th.",
     "coordinates": [88.8858, 25.1555],
@@ -106,7 +106,7 @@
     "bengaliName": "হলুদ বিহার",
     "period": "Pala Empire",
     "images": [
-        {"src": "/images/halud-bihar-1.png", "attribution": "unknown", "link": "" }
+        {"src": "halud-bihar-1.png", "attribution": "unknown", "link": "" }
     ],
     "coordinates": [88.9714, 24.9324],
     "timeStart": "600",
@@ -123,7 +123,7 @@
     "bengaliName": "সীতাকোট বিহার",
     "period": "Pala Empire",
     "images": [
-        {"src": "/images/shitakot-bihar-1.jpeg", "attribution": "unknown", "link": "https://worldheritagebd.blogspot.com/2015/05/sitakot-vihara.html" }
+        {"src": "shitakot-bihar-1.jpeg", "attribution": "unknown", "link": "https://worldheritagebd.blogspot.com/2015/05/sitakot-vihara.html" }
     ],
     "coordinates": [90.1619, 23.6612],
     "timeStart": "600",
