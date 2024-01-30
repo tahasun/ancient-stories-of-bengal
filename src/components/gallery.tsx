@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { IImage } from "../utils/types";
+import { Swipeable } from "react-swipeable";
 
 const SCROLL_TIME = 5 * 1000;
 
@@ -68,11 +69,26 @@ const Gallery = (props: GalleryProps) => {
     setActiveTab(index);
   };
 
+  const handleSwipeLeft = () => {
+    clearInterval(_interval);
+    setActiveTab((activeTab + 1) % props.images.length);
+  };
+
+  const handleSwipeRight = () => {
+    clearInterval(_interval);
+    setActiveTab((activeTab - 1) % props.images.length);
+  };
+
   const imgSrc = "images/" + props.images[activeTab]?.src;
 
   return (
     <Wrapper>
-      <Image src={imgSrc ?? ""} />
+      <Swipeable
+        onSwipedLeft={handleSwipeLeft}
+        onSwipedRight={handleSwipeRight}
+      >
+        <Image src={imgSrc ?? ""} />
+      </Swipeable>
       <Link href={props.images[activeTab]?.link ?? ""}>
         ©{props.images[activeTab]?.attribution ?? ""}
       </Link>
