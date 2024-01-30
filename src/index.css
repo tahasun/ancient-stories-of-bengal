@@ -73,6 +73,17 @@ button:focus-visible {
   margin: 5vh 10vw 5vh 0;
 }
 
+@media (max-width: 600px) {
+  .ant-drawer-content-wrapper {
+    min-width: 100%;
+    margin: 0;
+  }
+
+  .ant-drawer-content {
+    border-radius: 0px;
+  }
+}
+
 .ant-drawer-content {
   border-radius: 1rem;
 }

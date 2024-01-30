@@ -20,6 +20,7 @@ import {
   MapContext,
 } from "../utils/mapContext";
 import { TopBar } from "./topBar";
+import styled from "styled-components";
 
 export const BASE_URL = "stories-of-our-land";
 
@@ -31,6 +32,13 @@ const INITIAL_MAP_STATE = {
   viewState: INITIAL_VIEW_STATE,
   animationOn: false,
 } as MapState;
+
+const TopBarWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
 
 export const Map = () => {
   const [hoverInfo, setHoverInfo] = useState<PickingInfo>();
@@ -161,11 +169,13 @@ export const Map = () => {
           handleViewStateChange(viewState as ViewState)
         }
       >
-        <TopBar
-          resetCameraHandler={resetCamera}
-          selectLandmarkHandler={handleSelectLandmark}
-          searchVal={searchVal}
-        />
+        <TopBarWrapper>
+          <TopBar
+            resetCameraHandler={resetCamera}
+            selectLandmarkHandler={handleSelectLandmark}
+            searchVal={searchVal}
+          />
+        </TopBarWrapper>
         <Profile
           landmark={selectedLandmark}
           active={openProfile}

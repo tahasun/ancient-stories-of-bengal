@@ -48,12 +48,15 @@ export const Wrapper = styled.div`
 `;
 
 export const TopSection = styled.div`
-  position: absolute;
-  left: 26vw;
-  top: 4vh;
+  padding: 2vh 10%;
+  min-width: 80%;
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  @media (min-width: 800px) {
+    min-width: 50%;
+  }
 `;
 
 export const CircularWrapper = styled.div`

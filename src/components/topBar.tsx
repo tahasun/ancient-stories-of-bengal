@@ -26,7 +26,7 @@ export const TopBar = ({
 
       <Select
         showSearch
-        style={{ width: 600 }}
+        style={{ width: "100%" }}
         placeholder="Search for a landmark..."
         optionFilterProp="children"
         filterOption={(input, option) =>
