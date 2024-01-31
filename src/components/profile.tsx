@@ -1,5 +1,5 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import Gallery from "./gallery";
+import {Gallery} from "./gallery";
 import { Drawer } from "antd";
 import styled from "styled-components";
 import { ILandmark } from "../utils/types";

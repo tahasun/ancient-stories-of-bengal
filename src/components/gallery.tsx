@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { IImage } from "../utils/types";
-import { Swipeable } from "react-swipeable";
+import { useSwipeable } from "react-swipeable";
 
 const SCROLL_TIME = 5 * 1000;
 
@@ -35,7 +35,6 @@ const Link = styled.a`
 const Image = styled.img`
   width: 100%;
   height: auto;
-  background-color: pink;
 `;
 
 const SlickWrapper = styled.ul`
@@ -47,7 +46,7 @@ const SlickWrapper = styled.ul`
   justify-content: center;
 `;
 
-const Gallery = (props: GalleryProps) => {
+export const Gallery = (props: GalleryProps) => {
   const [activeTab, setActiveTab] = useState<number>(0);
   const [_interval, _setInterval] = useState<NodeJS.Timeout>();
 
@@ -76,19 +75,27 @@ const Gallery = (props: GalleryProps) => {
 
   const handleSwipeRight = () => {
     clearInterval(_interval);
-    setActiveTab((activeTab - 1) % props.images.length);
+
+    let index = activeTab - 1;
+    if (activeTab - 1 < 0) {
+      index = props.images.length - 1;
+    }
+
+    setActiveTab(index % props.images.length);
   };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: handleSwipeLeft,
+    onSwipedRight: () => handleSwipeRight(),
+  });
 
   const imgSrc = "images/" + props.images[activeTab]?.src;
 
   return (
     <Wrapper>
-      <Swipeable
-        onSwipedLeft={handleSwipeLeft}
-        onSwipedRight={handleSwipeRight}
-      >
+      <div {...handlers}>
         <Image src={imgSrc ?? ""} />
-      </Swipeable>
+      </div>
       <Link href={props.images[activeTab]?.link ?? ""}>
         ©{props.images[activeTab]?.attribution ?? ""}
       </Link>
@@ -104,5 +111,3 @@ const Gallery = (props: GalleryProps) => {
     </Wrapper>
   );
 };
-
-export default Gallery;

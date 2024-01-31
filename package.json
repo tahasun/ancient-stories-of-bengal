@@ -19,7 +19,7 @@
     "deck.gl": "^8.9.30",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-swipeable-views": "^0.14.0",
+    "react-swipeable": "^7.0.1",
     "styled-components": "^6.0.8"
   },
   "devDependencies": {
