@@ -22,7 +22,7 @@ import {
 import { TopBar } from "./topBar";
 import styled from "styled-components";
 
-export const BASE_URL = "stories-of-our-land";
+export const BASE_URL = "ancient-stories-of-bengal";
 
 const ICON_MAPPING = {
   marker: { x: 0, y: 0, width: 260, height: 280, anchor: 260, mask: true },
