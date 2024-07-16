@@ -21,6 +21,7 @@ import {
 } from "../utils/mapContext";
 import { TopBar } from "./topBar";
 import styled from "styled-components";
+import { LanguageSwitcher } from "./language-switcher";
 
 export const BASE_URL = "ancient-stories-of-bengal";
 
@@ -175,6 +176,7 @@ export const Map = () => {
             selectLandmarkHandler={handleSelectLandmark}
             searchVal={searchVal}
           />
+          <LanguageSwitcher />
         </TopBarWrapper>
         <Profile
           landmark={selectedLandmark}
