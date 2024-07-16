@@ -1,8 +1,8 @@
 {
-  "name": "storiesofourland",
+  "name": "ancientStoriesOfBengal",
   "private": true,
   "version": "1.0.0",
-  "homepage": "http://tahasun.github.io/StoriesOfOurLand",
+  "homepage": "http://tahasun.github.io/ancient-stories-of-bengal/",
   "type": "module",
   "scripts": {
     "dev": "vite",
