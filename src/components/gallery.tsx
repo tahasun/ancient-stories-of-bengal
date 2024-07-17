@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { IImage } from "../utils/types";
+import { Image } from "../types";
 import { useSwipeable } from "react-swipeable";
 
 const SCROLL_TIME = 5 * 1000;
 
 interface GalleryProps {
-  images: IImage[];
+  images: Image[];
 }
 
 const Slick = styled.li`

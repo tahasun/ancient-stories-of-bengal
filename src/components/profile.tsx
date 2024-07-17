@@ -2,12 +2,12 @@ import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Gallery } from "./gallery";
 import { Drawer } from "antd";
 import styled from "styled-components";
-import { ILandmark } from "../utils/types";
+import { Landmark } from "../types";
 import { getYear } from "../utils/utils";
 import { useTranslation } from "react-i18next";
 
 interface ProfileProps {
-  landmark: ILandmark;
+  landmark: Landmark;
   active: boolean;
   onClose: () => void;
 }
@@ -51,7 +51,7 @@ const Profile = ({ landmark, active, onClose }: ProfileProps) => {
       classNames={{ header: "customer-drawer-header" }}
     >
       <h2>
-        {landmark.bengaliName}, {getYear(landmark.timeStart)} -{" "}
+        {landmark.name}, {getYear(landmark.timeStart)} -{" "}
         {getYear(landmark.timeEnd)}
       </h2>
       <p>{landmark.location ?? ""}</p>

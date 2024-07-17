@@ -1,11 +1,11 @@
-import { ILandmark } from "./types";
+import { Landmark } from "../types";
 
 // given an array of objects, create an obj id: landmark obj
-export const getLandmarksById = (data: ILandmark[]): { [id: string]: ILandmark } => {
+export const getLandmarksById = (data: Landmark[]): { [id: string]: Landmark } => {
     return data.reduce((acc, cur) => {
       acc[cur.id] = cur;
       return acc;
-    }, {} as { [id: string]: ILandmark });
+    }, {} as { [id: string]: Landmark });
   };
   
 export const getYear = (year: string): string => {

@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { ViewState } from "./types";
+import { ViewState } from "../types";
 
 export enum MapActions {
     TOGGLE_ANIMATION = "toggleAnimation",

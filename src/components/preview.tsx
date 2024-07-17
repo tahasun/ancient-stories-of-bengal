@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ILandmark } from "../utils/types";
+import { Landmark } from "../types";
 // import { BASE_URL } from "./gallery";
 
 const Container = styled.div`
@@ -23,11 +23,9 @@ const Img = styled.img`
   height: auto;
 `;
 
-const ProfilePreview = ({ landmark }: { landmark: ILandmark }) => {
-  // const imgSrc = import.meta.env.PROD
-  //   ? BASE_URL + landmark.images[0].src
-  //   : landmark.images[0].src;
+//todo: trans landmark name
 
+const ProfilePreview = ({ landmark }: { landmark: Landmark }) => {
   return (
     <Container>
       <h2>{landmark.name}</h2>
