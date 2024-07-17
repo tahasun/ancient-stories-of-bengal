@@ -2,9 +2,8 @@
 {   
     "id": "1",
     "name": "Nalanda Mahavihara",
-    "bengaliName": "নালন্দা",
     "location": "Nalanda, Bihar",
-    "historic-location": "Magadha",
+    "historicLocation": "Magadha",
     "images": [
         {"src": "nalanda-1.jpeg", "attribution": "Photo by Marc", "link": "https://www.flickr.com/photos/marc-p-1970/" }, 
         {"src": "nalanda-2.jpeg", "attribution": "Photo by Marc", "link": "https://www.flickr.com/photos/marc-p-1970/" },
@@ -24,7 +23,7 @@
     "id": "2",
     "name": "Vikramashila",
     "bengaliName": "বিক্রমশিলা",
-    "historic-location": "Magadha",
+    "historicLocation": "Magadha",
     "location": "Bhagalpur, Bihar",
     "period": "Pala Empire",
     "images": [
@@ -43,7 +42,7 @@
     "selected": false,  
     "id": "3",
     "name": "Paharpur Buddhist Vihara",
-    "historic-location": "Varendra",
+    "historicLocation": "Varendra",
     "alternateName": "Somapura Mahavihara",
     "bengaliName": "সোমপুর মহাবিহার",
     "location": "Paharpur, Naogaon",

@@ -2,16 +2,16 @@ import DeckGL from "@deck.gl/react/typed";
 import { MapView } from "@deck.gl/core/typed";
 import { IconLayer } from "@deck.gl/layers/typed";
 import type { PickingInfo } from "@deck.gl/core/typed";
-import * as landmarkData from "../data/landmarks.json";
 import { useMemo, useReducer, useState } from "react";
 import Profile from "./profile";
-import { getLandmarksById } from "../utils/utils";
 // import ProfilePreview from "./preview";
-import { ILandmark, ViewState } from "../utils/types";
+import { Landmark, ViewState } from "../types";
 import { Wrapper, HoverInfo, CopyrightLicense, Link } from "./map.style";
 import { MapController } from "./mapController";
 import { tileLayer } from "./TileLayer";
 import { INITIAL_VIEW_STATE } from "../utils/constants";
+import { uiStore } from "../stores/ui.store";
+import { landmarkStore } from "../stores/landmark-store";
 
 import {
   MapState,
@@ -21,6 +21,7 @@ import {
 } from "../utils/mapContext";
 import { TopBar } from "./topBar";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 export const BASE_URL = "ancient-stories-of-bengal";
 
@@ -43,12 +44,15 @@ const TopBarWrapper = styled.div`
 export const Map = () => {
   const [hoverInfo, setHoverInfo] = useState<PickingInfo>();
   const [openProfile, setOpenProfile] = useState(false);
-  const [data, setData] = useState<ILandmark[]>(landmarkData.landmarks);
+  const [data, setData] = useState<Landmark[]>(
+    landmarkStore.landmarks[uiStore.curLangCode]
+  );
   const [searchVal, setSearchVal] = useState<string>(""); //track id selected
   const [mapState, dispatch] = useReducer(mapReducer, INITIAL_MAP_STATE);
+  const { t } = useTranslation();
 
   const selectedLandmarkId = useMemo(() => {
-    const selectedId = landmarkData.landmarks
+    const selectedId = landmarkStore.landmarks[uiStore.curLangCode]
       .filter((landmark) => landmark.selected)
       .map((l) => l.id);
 
@@ -152,7 +156,7 @@ export const Map = () => {
     onClick: (info) => handlePinClick(info),
   });
 
-  const landmarksById = getLandmarksById(landmarkData.landmarks);
+  const landmarksById = landmarkStore.getLandmarksById(uiStore.curLangCode);
 
   const selectedLandmark = useMemo(() => {
     return landmarksById[selectedLandmarkId ?? 0] ?? {};
@@ -201,7 +205,7 @@ export const Map = () => {
         <CopyrightLicense>
           {"© "}
           <Link href="http://www.openstreetmap.org/copyright" target="blank">
-            OpenStreetMap contributors
+            {t("map.attribution")}
           </Link>
         </CopyrightLicense>
       </DeckGL>

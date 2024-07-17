@@ -48,8 +48,8 @@ export const Wrapper = styled.div`
 `;
 
 export const TopSection = styled.div`
-  padding: 2vh 10%;
-  min-width: 80%;
+  padding: 2vmin 1.5vmin;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;

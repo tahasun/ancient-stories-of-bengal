@@ -1,12 +1,13 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import {Gallery} from "./gallery";
+import { Gallery } from "./gallery";
 import { Drawer } from "antd";
 import styled from "styled-components";
-import { ILandmark } from "../utils/types";
+import { Landmark } from "../types";
 import { getYear } from "../utils/utils";
+import { useTranslation } from "react-i18next";
 
 interface ProfileProps {
-  landmark: ILandmark;
+  landmark: Landmark;
   active: boolean;
   onClose: () => void;
 }
@@ -32,9 +33,11 @@ const CustomDrawer = styled(Drawer)`
 `;
 
 const Profile = ({ landmark, active, onClose }: ProfileProps) => {
+  const { t } = useTranslation();
   const citations = landmark.attribution?.split(",") ?? [];
   const paragraphs = landmark.description?.split("/n") ?? [];
 
+  const citationText = citations?.length > 0 ? t("citation") : "";
   return (
     <CustomDrawer
       title={landmark.name ?? ""}
@@ -48,7 +51,7 @@ const Profile = ({ landmark, active, onClose }: ProfileProps) => {
       classNames={{ header: "customer-drawer-header" }}
     >
       <h2>
-        {landmark.bengaliName}, {getYear(landmark.timeStart)} -{" "}
+        {landmark.name}, {getYear(landmark.timeStart)} -{" "}
         {getYear(landmark.timeEnd)}
       </h2>
       <p>{landmark.location ?? ""}</p>
@@ -58,7 +61,7 @@ const Profile = ({ landmark, active, onClose }: ProfileProps) => {
           <p key={id}>{paragrpah}</p>
         ))}
       </section>
-      {citations?.length > 0 ? "further readings | source: " : ""}
+      {citationText}
       {citations?.map((link: string, id: number) => (
         <a key={id} href={link}>
           ✿
