@@ -34,7 +34,7 @@ export const TopBar = observer(
 
         <Select
           showSearch
-          style={{ width: "80%" }}
+          style={{ width: "40%" }}
           placeholder={t("topbar.search.placeholder-text")}
           optionFilterProp="children"
           filterOption={(input, option) =>

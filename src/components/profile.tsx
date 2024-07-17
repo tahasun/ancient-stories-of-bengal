@@ -37,7 +37,8 @@ const Profile = ({ landmark, active, onClose }: ProfileProps) => {
   const citations = landmark.attribution?.split(",") ?? [];
   const paragraphs = landmark.description?.split("/n") ?? [];
 
-  const citationText = citations?.length > 0 ? t("citation") : "";
+  const citationText = citations?.length > 0 ? t("profile.citation") : "";
+
   return (
     <CustomDrawer
       title={landmark.name ?? ""}

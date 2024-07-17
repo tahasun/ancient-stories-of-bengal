@@ -11,13 +11,6 @@ const Wrapper = styled.div`
   padding: 2vmin;
   margin-left: auto;
 
-  > button {
-    padding: 0.4em 1em;
-    height: 100%;
-    color: grey;
-    background-color: lightgrey;
-  }
-
   > button:first-child {
     border-radius: 8px 0px 0px 8px;
     border-right: 1px solid lightgrey;
@@ -26,12 +19,15 @@ const Wrapper = styled.div`
   > button:last-child {
     border-radius: 0px 8px 8px 0px;
   }
+`;
 
-  > button:disabled {
-    color: #0096ff;
-    background-color: white;
-    border: 1px solid #0096ff;
-  }
+const Button = styled.button<{ $active: boolean }>`
+  padding: 0.4em 1em;
+  height: 100%;
+  color: ${({ $active }) => ($active ? "#0096ff" : "grey")};
+  background-color: ${({ $active }) =>
+    $active ? "white" : "rgba(255,255,255,0.5)"};
+  ${({ $active }) => ($active ? "border: 1px solid #0096ff;" : "")}
 `;
 
 export const LanguageSwitcher = observer(() => {
@@ -40,14 +36,15 @@ export const LanguageSwitcher = observer(() => {
   return (
     <Wrapper>
       {Object.keys(languages).map((lng) => (
-        <button
+        <Button
           type="submit"
           key={lng}
           onClick={() => uiStore.switchLang(lng)}
+          $active={i18n.resolvedLanguage == lng}
           disabled={i18n.resolvedLanguage == lng}
         >
           {languages[lng].tongue}
-        </button>
+        </Button>
       ))}
     </Wrapper>
   );
