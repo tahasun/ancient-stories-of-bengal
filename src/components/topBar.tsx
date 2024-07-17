@@ -6,6 +6,7 @@ import { observer } from "mobx-react-lite";
 import { useMemo } from "react";
 import { landmarkStore } from "../stores/landmark-store";
 import { uiStore } from "../stores/ui.store";
+import { LanguageSwitcher } from "./language-switcher";
 
 interface TopBarProps {
   resetCameraHandler: () => void;
@@ -33,7 +34,7 @@ export const TopBar = observer(
 
         <Select
           showSearch
-          style={{ width: "100%" }}
+          style={{ width: "80%" }}
           placeholder={t("topbar.search.placeholder-text")}
           optionFilterProp="children"
           filterOption={(input, option) =>
@@ -48,6 +49,7 @@ export const TopBar = observer(
           onSelect={(val) => selectLandmarkHandler(val)}
           value={searchVal}
         />
+        <LanguageSwitcher />
       </TopSection>
     );
   }

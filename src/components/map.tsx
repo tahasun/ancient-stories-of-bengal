@@ -21,7 +21,6 @@ import {
 } from "../utils/mapContext";
 import { TopBar } from "./topBar";
 import styled from "styled-components";
-import { LanguageSwitcher } from "./language-switcher";
 import { useTranslation } from "react-i18next";
 
 export const BASE_URL = "ancient-stories-of-bengal";
@@ -180,7 +179,6 @@ export const Map = () => {
             selectLandmarkHandler={handleSelectLandmark}
             searchVal={searchVal}
           />
-          <LanguageSwitcher />
         </TopBarWrapper>
         <Profile
           landmark={selectedLandmark}

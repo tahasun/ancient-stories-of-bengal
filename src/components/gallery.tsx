@@ -32,7 +32,7 @@ const Link = styled.a`
   font-size: 14px;
 `;
 
-const Image = styled.img`
+const StyledImage = styled.img`
   width: 100%;
   height: auto;
 `;
@@ -94,7 +94,7 @@ export const Gallery = (props: GalleryProps) => {
   return (
     <Wrapper>
       <div {...handlers}>
-        <Image src={imgSrc ?? ""} />
+        <StyledImage src={imgSrc ?? ""} />
       </div>
       <Link href={props.images[activeTab]?.link ?? ""}>
         ©{props.images[activeTab]?.attribution ?? ""}
