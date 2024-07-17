@@ -70,4 +70,5 @@ export const CircularWrapper = styled.div`
   align-items: center;
   padding: 6px;
   margin: 0 10px;
+  margin-left: auto;
 `;
